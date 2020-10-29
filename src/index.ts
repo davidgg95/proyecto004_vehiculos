@@ -1,4 +1,4 @@
-import { Coche } from './vehiculos'
+import { Coche, Coches } from './vehiculos'
 import { menu, menu2 } from './view/menuPral'
 import { leerTeclado } from './view/entradaTeclado'
 import { connect, disconnect } from './database/database'
@@ -109,9 +109,18 @@ const main = async() => {
                                     }
                                     break
                                 case 4:
-                                    let t:number
-                                    t=parseInt(await leerTeclado("Introduzca el tiempo en horas que lleva el vehículo a la velocidad actual"))
-                                    console.log(`${coches[index].consumido(t)}`)
+                                        await connect()
+                                        // Crear el doc Schema y objeto Schema a partir del objeto
+                                        // salvarlo
+                                        const dSchema = {
+                                             _matricula : String,
+                                             _consumo : Number ,
+                                             _arrancado : Boolean,
+                                             _velocidad : Number,
+                                        }
+                                        const oSchema = new Coches (dSchema)
+                                        await oSchema.save()
+                                        await disconnect()
                                     break
                                 case 0:
                                     console.log('\n--VOLVIENDO A LA LISTA DE COCHES--')

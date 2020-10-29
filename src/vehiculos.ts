@@ -1,3 +1,4 @@
+import {Schema, model } from 'mongoose'
 export class Coche {
     private _matricula : string
     private _consumo : number 
@@ -51,5 +52,15 @@ export class Coche {
     public imprimirCoche(){
         return `El coche con matricula ${this.matricula} va a ${this._velocidad} km/h y consume ${this._consumo} L cada 100 km`
     }
-
 }
+
+// Definimos el Schema
+const cocheSchema = new Schema({
+    _matricula : String,
+    _consumo : Number ,
+    _arrancado : Boolean,
+    _velocidad : Number,
+})
+
+// La colección de la BD: vehiculos (Plural siempre)
+export const Coches = model('coches', cocheSchema)

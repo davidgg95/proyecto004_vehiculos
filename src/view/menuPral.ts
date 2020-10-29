@@ -18,8 +18,7 @@ export const menu2 = async () => {
     console.log('1.- VER COCHE')
     console.log('2.- ENCENDER/APAGAR COCHE')
     console.log('3.- CAMBIAR VELOCIDAD COCHE')
-    console.log('4.- CALCULAR CONSUMO COCHE')
-    console.log('5.- Salvar en BD')
+    console.log('4.- Salvar en BD')
     console.log('0.- SALIR')
     n = parseInt( await leerTeclado('--OPCIÓN--') )
     return n

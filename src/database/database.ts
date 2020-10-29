@@ -8,7 +8,7 @@ en el import con el mismo nombre y con {}
 */
 export const connect = async () => {
     try {
-        await mongoose.connect('mongodb://localhost/vehiculos', {
+        await mongoose.connect('mongodb://localhost/vehiculo', {
             useNewUrlParser: true, useUnifiedTopology: true
         });
         console.log('Conectado a la Base de Datos');
